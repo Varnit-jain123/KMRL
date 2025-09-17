@@ -139,94 +139,9 @@ export const Dashboard = ({ onDocumentClick, onUploadClick, onNoticeClick }: Das
         ))}
       </div>
 
-      {/* Recent Notices and Documents Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-        {/* Recent Notices */}
-        <Card className="kmrl-card">
-          <CardHeader>
-            <CardTitle className="flex items-center justify-between">
-              <span className="flex items-center">
-                <Bell className="mr-2 h-5 w-5" />
-                Recent Notices
-              </span>
-              <Badge variant="secondary">{notices.length} notices</Badge>
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-3">
-            {notices.map((notice) => (
-              <div
-                key={notice.id}
-                className={`p-4 rounded-lg border cursor-pointer kmrl-transition hover:bg-accent/50 ${
-                  notice.unread ? "border-primary bg-primary/5" : "border-border"
-                } ${notice.priority === "high" ? "border-l-4 border-l-destructive" : ""}`}
-                onClick={() => onNoticeClick(notice.id)}
-              >
-                <div className="flex items-start justify-between mb-2">
-                  <h4 className="text-sm font-semibold text-foreground">{notice.title}</h4>
-                  <div className="flex items-center space-x-1">
-                    {notice.priority === "high" && (
-                      <AlertCircle className="h-4 w-4 text-destructive" />
-                    )}
-                    {notice.unread && (
-                      <div className="w-2 h-2 bg-primary rounded-full" />
-                    )}
-                  </div>
-                </div>
-                <p className="text-xs text-muted-foreground mb-3">{notice.message}</p>
-                <div className="flex items-center justify-between">
-                  <Badge variant="secondary" className="text-xs">{notice.department}</Badge>
-                  <span className="text-xs text-muted-foreground">{notice.timestamp}</span>
-                </div>
-              </div>
-            ))}
-          </CardContent>
-        </Card>
+      
 
-        {/* Recent Documents Summary */}
-        <Card className="kmrl-card">
-          <CardHeader>
-            <CardTitle className="flex items-center justify-between">
-              <span className="flex items-center">
-                <FileText className="mr-2 h-5 w-5" />
-                Recent Documents
-              </span>
-              <Badge variant="secondary">{recentDocuments.length} documents</Badge>
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-3">
-            {recentDocuments.slice(0, 3).map((doc) => (
-              <div
-                key={doc.id}
-                className={`p-4 rounded-lg border cursor-pointer kmrl-transition hover:bg-accent/50 ${
-                  doc.priority === "high" ? "border-l-4 border-l-destructive" : "border-border"
-                }`}
-                onClick={() => onDocumentClick(doc.id)}
-              >
-                <div className="flex items-start justify-between mb-2">
-                  <h4 className="text-sm font-semibold text-foreground truncate">{doc.title}</h4>
-                  <div className="flex items-center space-x-1">
-                    {doc.priority === "high" && (
-                      <AlertCircle className="h-4 w-4 text-destructive" />
-                    )}
-                    <Badge variant="outline" className="text-xs">{doc.type}</Badge>
-                  </div>
-                </div>
-                <p className="text-xs text-muted-foreground mb-2 line-clamp-2">{doc.summary}</p>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-1">
-                    {doc.aiTags.slice(0, 2).map((tag, index) => (
-                      <Badge key={index} variant="secondary" className="text-xs">
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
-                  <span className="text-xs text-muted-foreground">{doc.uploadedAt}</span>
-                </div>
-              </div>
-            ))}
-          </CardContent>
-        </Card>
-      </div>
+      
 
       {/* Detailed Documents Section */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -292,6 +207,8 @@ export const Dashboard = ({ onDocumentClick, onUploadClick, onNoticeClick }: Das
                         <span>{doc.uploadedAt}</span>
                       </div>
                     </div>
+
+
 
                     {/* AI Actions */}
                     <div className="flex items-center space-x-2 mt-3">
@@ -372,32 +289,51 @@ export const Dashboard = ({ onDocumentClick, onUploadClick, onNoticeClick }: Das
             </CardContent>
           </Card>
 
-          {/* Quick Stats */}
-          <Card className="kmrl-card">
-            <CardHeader>
-              <CardTitle className="text-lg">Quick Stats</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-muted-foreground">Total Documents</span>
-                <span className="text-lg font-semibold text-foreground">127</span>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-muted-foreground">Urgent Items</span>
-                <span className="text-lg font-semibold text-destructive">5</span>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-muted-foreground">Unread Notices</span>
-                <span className="text-lg font-semibold text-warning">3</span>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-muted-foreground">AI Summaries</span>
-                <span className="text-lg font-semibold text-success">89</span>
-              </div>
-            </CardContent>
-          </Card>
+          
         </div>
       </div>
+
+     {/* Recent Notices Section */}
+<Card className="kmrl-card">
+  <CardHeader>
+    <CardTitle className="flex items-center justify-between">
+      <span className="flex items-center">
+        <Bell className="mr-2 h-5 w-5" />
+        Recent Notices
+      </span>
+      <Badge variant="secondary">{notices.length} notices</Badge>
+    </CardTitle>
+  </CardHeader>
+  <CardContent className="space-y-3">
+    {notices.map((notice) => (
+      <div
+        key={notice.id}
+        className={`p-4 rounded-lg border cursor-pointer kmrl-transition hover:bg-accent/50 ${
+          notice.unread ? "border-primary bg-primary/5" : "border-border"
+        } ${notice.priority === "high" ? "border-l-4 border-l-destructive" : ""}`}
+        onClick={() => onNoticeClick(notice.id)}
+      >
+        <div className="flex items-start justify-between mb-2">
+          <h4 className="text-sm font-semibold text-foreground">{notice.title}</h4>
+          <div className="flex items-center space-x-1">
+            {notice.priority === "high" && (
+              <AlertCircle className="h-4 w-4 text-destructive" />
+            )}
+            {notice.unread && (
+              <div className="w-2 h-2 bg-primary rounded-full" />
+            )}
+          </div>
+        </div>
+        <p className="text-xs text-muted-foreground mb-3">{notice.message}</p>
+        <div className="flex items-center justify-between">
+          <Badge variant="secondary" className="text-xs">{notice.department}</Badge>
+          <span className="text-xs text-muted-foreground">{notice.timestamp}</span>
+        </div>
+      </div>
+    ))}
+  </CardContent>
+</Card>
+
     </div>
   );
 };
