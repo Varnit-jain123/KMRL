@@ -1,0 +1,259 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* KMRL Professional Design System - All colors, gradients, fonts, etc defined here */
+
+@layer base {
+  :root {
+    /* Professional KMRL Color Palette */
+    --background: 0 0% 100%;
+    --foreground: 223 84% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 223 84% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 223 84% 12%;
+
+    /* KMRL Professional Blue */
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 221 83% 48%;
+    --primary-light: 221 83% 95%;
+
+    /* Professional Gray Scale */
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 223 47% 11%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: 221 83% 95%;
+    --accent-foreground: 221 83% 53%;
+
+    /* Status Colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+    
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    /* UI Elements */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 221 83% 53%;
+
+    /* KMRL Specific Design Tokens */
+    --kmrl-blue: 221 83% 53%;
+    --kmrl-blue-dark: 221 83% 43%;
+    --kmrl-blue-light: 221 83% 95%;
+    --kmrl-gray-50: 220 14% 98%;
+    --kmrl-gray-100: 220 14% 96%;
+    --kmrl-gray-200: 220 13% 91%;
+    --kmrl-gray-500: 220 9% 46%;
+    --kmrl-gray-700: 220 13% 18%;
+    --kmrl-gray-900: 223 84% 12%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--kmrl-blue)), hsl(var(--kmrl-blue-dark)));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--kmrl-gray-50)), hsl(var(--background)));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(var(--kmrl-gray-50)));
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(var(--kmrl-gray-900) / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(var(--kmrl-gray-900) / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(var(--kmrl-gray-900) / 0.1);
+    --shadow-xl: 0 20px 25px -5px hsl(var(--kmrl-gray-900) / 0.1);
+    --shadow-blue: 0 10px 30px -10px hsl(var(--kmrl-blue) / 0.3);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* KMRL Dark Mode */
+    --background: 223 84% 6%;
+    --foreground: 0 0% 98%;
+
+    --card: 223 84% 8%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 223 84% 8%;
+    --popover-foreground: 0 0% 98%;
+
+    /* KMRL Blue stays consistent in dark mode */
+    --primary: 221 83% 58%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 221 83% 53%;
+    --primary-light: 221 83% 15%;
+
+    --secondary: 223 84% 12%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 223 84% 12%;
+    --muted-foreground: 220 9% 65%;
+
+    --accent: 221 83% 15%;
+    --accent-foreground: 221 83% 80%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --success: 142 76% 42%;
+    --success-foreground: 0 0% 98%;
+    
+    --warning: 38 92% 55%;
+    --warning-foreground: 0 0% 98%;
+
+    --border: 223 84% 18%;
+    --input: 223 84% 18%;
+    --ring: 221 83% 58%;
+
+    /* Dark mode KMRL tokens */
+    --kmrl-gray-50: 223 84% 12%;
+    --kmrl-gray-100: 223 84% 15%;
+    --kmrl-gray-200: 223 84% 18%;
+    --kmrl-gray-500: 220 9% 65%;
+    --kmrl-gray-700: 0 0% 85%;
+    --kmrl-gray-900: 0 0% 98%;
+
+    /* Dark mode gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--kmrl-blue)), hsl(var(--kmrl-blue-dark)));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--kmrl-gray-50)), hsl(var(--background)));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(var(--kmrl-gray-100)));
+
+    /* Dark mode shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.1);
+    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.2);
+    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.3);
+    --shadow-xl: 0 20px 25px -5px hsl(0 0% 0% / 0.4);
+    --shadow-blue: 0 10px 30px -10px hsl(var(--kmrl-blue) / 0.4);
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* KMRL Professional Typography */
+  .text-kmrl-heading {
+    @apply text-2xl font-bold text-foreground;
+  }
+
+  .text-kmrl-subheading {
+    @apply text-lg font-semibold text-foreground;
+  }
+
+  .text-kmrl-body {
+    @apply text-base text-muted-foreground;
+  }
+
+  .text-kmrl-caption {
+    @apply text-sm text-muted-foreground;
+  }
+
+  /* KMRL Component Utilities */
+  .kmrl-card {
+    @apply bg-card border border-border rounded-lg shadow-sm;
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-smooth);
+  }
+
+  .kmrl-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-1px);
+  }
+
+  .kmrl-button-primary {
+    background: var(--gradient-primary);
+    box-shadow: var(--shadow-blue);
+    transition: var(--transition-smooth);
+  }
+
+  .kmrl-button-primary:hover {
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-1px);
+  }
+
+  /* Smooth transitions for all interactive elements */
+  .kmrl-transition {
+    transition: var(--transition-smooth);
+  }
+
+  .kmrl-transition-fast {
+    transition: var(--transition-fast);
+  }
+
+  /* Professional focus styles */
+  .kmrl-focus {
+    @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+  }
+
+  /* Loading animations */
+  @keyframes kmrl-pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  @keyframes kmrl-slide-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .kmrl-animate-slide-in {
+    animation: kmrl-slide-in 0.3s ease-out;
+  }
+
+  .kmrl-animate-pulse {
+    animation: kmrl-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
